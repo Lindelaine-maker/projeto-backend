@@ -1,37 +1,30 @@
-{
-  "name": "projeto-backend",
-  "version": "1.0.0",
-  "description": "Projeto backend para o desafio Digital College",
-  "main": "src/server.js",
-  "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
-    "test": "jest --runInBand"
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('product_categories', {
+      product_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        references: {
+          model: 'products',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
+      },
+      category_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        references: {
+          model: 'categories',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
+      }
+    });
   },
-  "keywords": [
-    "backend",
-    "node",
-    "express",
-    "sequelize",
-    "mysql"
-  ],
-  "author": "Lindelaine",
-  "license": "MIT",
-  "dependencies": {
-    "bcrypt": "^5.1.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.2",
-    "jsonwebtoken": "^9.0.2",
-    "mysql2": "^3.1.1",
-    "sequelize": "^6.6.0",
-    "swagger-jsdoc": "^6.6.0",
-    "swagger-ui-express": "^5.0.0"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0",
-    "nodemon": "^3.1.16",
-    "sequelize-cli": "^6.6.0",
-    "supertest": "^7.0.0"
+
+  async down(queryInterface) {
+    await queryInterface.dropTable('product_categories');
   }
-}
+};

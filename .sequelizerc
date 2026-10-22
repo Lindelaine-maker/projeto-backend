@@ -1,0 +1,46 @@
+module.exports = (sequelize, DataTypes) => {
+  const ProductCategory = sequelize.define(
+    'ProductCategory',
+    {
+      product_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        references: {
+          model: 'products',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
+      },
+      category_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        references: {
+          model: 'categories',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
+      }
+    },
+    {
+      tableName: 'product_categories',
+      timestamps: false,
+      underscored: true
+    }
+  );
+
+  ProductCategory.associate = (models) => {
+    ProductCategory.belongsTo(models.Product, {
+      foreignKey: 'product_id',
+      as: 'product'
+    });
+
+    ProductCategory.belongsTo(models.Category, {
+      foreignKey: 'category_id',
+      as: 'category'
+    });
+  };
+
+  return ProductCategory;
+};
