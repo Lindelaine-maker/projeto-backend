@@ -1,0 +1,60 @@
+Relatório final do projeto backend
+
+Resumo Este projeto consiste em uma API REST desenvolvida em Node.js com Express, utilizando Sequelize e MySQL para persistência de dados. A aplicação foi estruturada para gerenciar usuários, categorias e produtos, com autenticação JWT para proteger endpoints sensíveis. Também foi incluída documentação Swagger para facilitar a consulta e validação dos endpoints.
+
+Objetivos
+
+Desenvolver uma API REST funcional para gerenciamento de usuários.
+Implementar autenticação com JWT.
+Criar CRUDs para categorias e produtos.
+Organizar o código em uma estrutura modular e escalável.
+Garantir consistência no uso de middlewares, rotas e controllers.
+Documentar a API para facilitar testes e manutenção.
+Tecnologias utilizadas
+
+Node.js
+Express.js
+Sequelize
+MySQL
+JWT
+Swagger
+dotenv
+cors
+Estrutura do projeto
+
+src/app.js
+src/routes/userRoutes.js
+src/routes/categoryRoutes.js
+src/routes/productRoutes.js
+src/controllers/UserController.js
+src/controllers/CategoryController.js
+src/controllers/ProductController.js
+src/middleware/authMiddleware.js
+src/middleware/errorHandler.js
+src/models
+src/database/migrations
+README.md
+Funcionalidades implementadas
+
+Cadastro de usuários
+Login com autenticação JWT
+Busca, atualização e exclusão de usuários
+CRUD completo de categorias
+CRUD completo de produtos
+Proteção de rotas por token JWT
+Tratamento de erros centralizado
+Documentação Swagger
+Validação realizada
+
+Banco MySQL foi verificado e está funcionando.
+Arquivo .env configurado corretamente.
+Dependências instaladas com sucesso.
+Migrations executadas com sucesso.
+API iniciada corretamente com npm run dev.
+Endpoint /health respondendo corretamente.
+Swagger acessível em /api-docs.
+Usuário foi criado e autenticado com sucesso.
+Token JWT gerado corretamente.
+Casos de sucesso e erro foram validados.
+Categorias e produtos foram testados em todos os endpoints do CRUD.
+Dados temporários foram removidos ao final da validação.
