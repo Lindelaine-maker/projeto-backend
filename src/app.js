@@ -4,11 +4,13 @@ const dotenv = require('dotenv');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
 
+const userRoutes = require('./routes/userRoutes');
+const categoryRoutes = require('./routes/categoryRoutes');
+const productRoutes = require('./routes/productRoutes');
+
 dotenv.config();
 
 const app = express();
-const userRoutes = require('./routes/userRoutes');
-const categoryRoutes = require('./routes/categoryRoutes');
 
 app.use(cors());
 app.use(express.json());
@@ -37,5 +39,6 @@ app.get('/health', (req, res) => {
 
 app.use('/v1', userRoutes);
 app.use('/v1', categoryRoutes);
+app.use('/v1', productRoutes);
 
 module.exports = app;
