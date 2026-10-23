@@ -138,11 +138,6 @@ Query params:
 - use_in_menu
 - fields
 
-Exemplo:
-```bash
-GET /v1/category/search?limit=12&page=1
-```
-
 #### Buscar categoria por ID
 - GET /v1/category/:id
 
@@ -167,22 +162,6 @@ Payload:
 ### Produtos
 #### Buscar produtos
 - GET /v1/product/search
-
-Query params:
-- limit
-- page
-- fields
-- match
-- category_ids
-- price_range
-- option[ID]
-
-Exemplo:
-```bash
-GET /v1/product/search?match=tenis
-GET /v1/product/search?category_ids=1,2
-GET /v1/product/search?price_range=50-200
-```
 
 #### Buscar produto por ID
 - GET /v1/product/:id
