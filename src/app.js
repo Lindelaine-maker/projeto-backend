@@ -42,3 +42,6 @@ app.use('/v1', categoryRoutes);
 app.use('/v1', productRoutes);
 
 module.exports = app;
+
+const errorHandler = require('./middleware/errorHandler');
+app.use(errorHandler);
